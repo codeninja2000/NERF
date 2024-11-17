@@ -1,0 +1,11 @@
+{
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
+    "files.associations": {
+        "iostream": "cpp"
+    },
+    "clang-format.executable": "clang-format",
+    "clang-format.style": "file",
+    "clang-format.fallbackStyle": "LLVM",
+    "clang-format.assumeFilename": "${workspaceFolder}/.clang-format",
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+}
