@@ -41,7 +41,7 @@ void NerfGun::fire() {
     if ((m_dartCount - 1) < 1)
         throw std::overflow_error("No more bullets, reload needed.");
     else {
-        std::cout << "Pew! Pew! Pew! Shot fired!" << std::endl;
+        // std::cout << "Shot fired from " << getModel() << '.' << std::endl;
         m_dartCount--;
     }
 }
@@ -51,20 +51,20 @@ void NerfGun::reload(int quantity) {
     if ((m_dartCount + quantity) > m_capacity)
         throw std::overflow_error("Too many rounds, less needed.");
     else {
-        std::cout << "Cha-ching! Reloaded!" << std::endl;
+        // std::cout << "Cha-ching! Reloaded!" << std::endl;
         m_dartCount += quantity;
     }
 }
 
 // Compound assignment overload
 NerfGun& NerfGun::operator+=(const int rounds) {
-    reload(rounds);
+    reload(rounds); // reload() throws an exception if capacity is exceeded
     return *this;
 }
 
 // Pre-decrement overload
 NerfGun& NerfGun::operator--() {
-    fire();
+    fire(); // fire() throws an exception if inventory is exhausted
     return *this;
 }
 
